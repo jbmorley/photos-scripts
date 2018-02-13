@@ -1,0 +1,10 @@
+#!/usr/bin/osascript -l JavaScript
+
+photos = Application('Photos');
+photos.includeStandardAdditions = true;
+photos.activate();
+item = photos.selection()[0];
+details = JSON.parse(photos.theClipboard());
+item.location = details["location"];
+item.date = new Date(details["date"]);
+
